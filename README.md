@@ -1,4 +1,4 @@
-CodePath Week 2 Homework - Carousel Prototype
+Week 2 HW - Carousel Prototype
 ============================================
 
 Carousel's create account and sign in experience with an emphasis on animation and segue transitions.
