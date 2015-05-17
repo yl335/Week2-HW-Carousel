@@ -8,12 +8,39 @@
 
 import UIKit
 
-class IntroViewController: UIViewController {
+class IntroViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var tileView: UIImageView!
+    @IBOutlet weak var tileView2: UIImageView!
+    @IBOutlet weak var tileView3: UIImageView!
+    @IBOutlet weak var tileView4: UIImageView!
+    @IBOutlet weak var tileView5: UIImageView!
+    @IBOutlet weak var tileView6: UIImageView!
+    
+    var yOffsets : [Float] = [-290, -250, -405, -387, -493, -475]
+    var xOffsets : [Float] = [-70, 35, 23, 75, -112, -73]
+    var scales : [Float] = [0.9, 1.65, 1.5, 1.7, 1.7, 1.65]
+    var rotations : [Float] = [-10, -10, 10, 10, 9, -10]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        scrollView.delegate = self
+        transformAll([tileView, tileView2, tileView3, tileView4, tileView5, tileView6])
+    }
+    
+    func transformAll(tileViews: [UIImageView]) {
+        var view:UIImageView
+        
+        for var index = 0; index < tileViews.count; ++index {
+            var rotate:CGFloat = CGFloat(rotations[index]) * CGFloat(M_PI / 180)
+            view = tileViews[index]
+            view.transform = CGAffineTransformMakeTranslation(CGFloat(xOffsets[index]), CGFloat(yOffsets[index]))
+            view.transform = CGAffineTransformScale(view.transform, CGFloat(scales[index]), CGFloat(scales[index]))
+            view.transform = CGAffineTransformRotate(view.transform, rotate)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +48,35 @@ class IntroViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        var offset = Float(scrollView.contentOffset.y)
+        
+        transformOnScroll(offset, tileViews: [tileView, tileView2, tileView3, tileView4, tileView5, tileView6])
+    }
+    
+    func transformOnScroll(offset:Float, tileViews: [UIImageView]) {
+        var view:UIImageView
+        var x:CGFloat
+        var y:CGFloat
+        var scale:CGFloat
+        var rotation:CGFloat
+        
+        for var index = 0; index < tileViews.count; ++index {
+            y = CGFloat(convertValue(offset, 0, 568, yOffsets[index], 0))
+            x = CGFloat(convertValue(offset, 0, 568, xOffsets[index], 0))
+            scale = CGFloat(convertValue(offset, 0, 568, scales[index], 1))
+            rotation = CGFloat(convertValue(offset, 0, 568, rotations[index], 0)) * CGFloat(M_PI / 180)
+            
+            view = tileViews[index]
+            view.transform = CGAffineTransformMakeTranslation(CGFloat(x), CGFloat(y))
+            view.transform = CGAffineTransformScale(view.transform, CGFloat(scale), CGFloat(scale))
+            view.transform = CGAffineTransformRotate(view.transform, CGFloat(rotation))
+        }
+    }
+    
+    @IBAction func onCreateADropboxButton(sender: AnyObject) {
+        
+    }
 
     /*
     // MARK: - Navigation

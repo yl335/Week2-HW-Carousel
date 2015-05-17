@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0CA7BCB7-41D4-463E-B39B-D35223656B5F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Carousel</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1C0179894E35D90610F652DB4BD2B06CE0278D9E</key>
+		<string>https://github.com/yl335/Week2-HW-Carousel.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Carousel.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1C0179894E35D90610F652DB4BD2B06CE0278D9E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/yl335/Week2-HW-Carousel.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1C0179894E35D90610F652DB4BD2B06CE0278D9E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1C0179894E35D90610F652DB4BD2B06CE0278D9E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Week2-HW-Carousel</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -22,8 +22,8 @@ class SignInViewController: UIViewController {
     var originalFormCenter: CGPoint!
     
     //hardcoded email/pwd
-    let emailStr = "a"
-    let passwordStr = "a"
+    let emailStr = "q"
+    let passwordStr = "w"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +42,11 @@ class SignInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onPressBackButton(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
     @IBAction func onPressSignIn(sender: AnyObject) {
         if emailField.text.isEmpty {
             showAlert("Email Required", messageStr: "Please enter your email address")
@@ -55,7 +60,7 @@ class SignInViewController: UIViewController {
             } else {
                 var alertView = UIAlertView(
                     title: "Loading...",
-                    message: nil,
+                    message: "\n\n\n",
                     delegate: self,
                     cancelButtonTitle: nil)
                 var loading = UIActivityIndicatorView()
