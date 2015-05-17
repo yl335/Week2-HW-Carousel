@@ -10,26 +10,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="j2o-eI-bov">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="1136"/>
-                </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="intro_tile1" translatesAutoresizingMaskIntoConstraints="NO" id="Uh4-Ka-xCt">
-                    <rect key="frame" x="42" y="309" width="153" height="152"/>
-                </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="intro_tile2" translatesAutoresizingMaskIntoConstraints="NO" id="Pm1-SR-gbj">
-                    <rect key="frame" x="195" y="309" width="75" height="75"/>
-                </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="intro_tile3" translatesAutoresizingMaskIntoConstraints="NO" id="bWn-Uo-Rv7">
-                    <rect key="frame" x="195" y="385" width="76" height="76"/>
-                </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="intro_tile4" translatesAutoresizingMaskIntoConstraints="NO" id="Q2C-Nf-Ea5">
-                    <rect key="frame" x="42" y="462" width="76" height="76"/>
-                </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="intro_tile5" translatesAutoresizingMaskIntoConstraints="NO" id="VSR-mG-2gl">
-                    <rect key="frame" x="119" y="463" width="76" height="75"/>
-                </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="intro_tile6" translatesAutoresizingMaskIntoConstraints="NO" id="qcD-or-M3e">
-                    <rect key="frame" x="195" y="463" width="76" height="75"/>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="pCB-gS-Q5x">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -39,12 +21,6 @@
         </view>
     </objects>
     <resources>
-        <image name="intro" width="320" height="1136"/>
-        <image name="intro_tile1" width="153" height="152"/>
-        <image name="intro_tile2" width="76" height="75"/>
-        <image name="intro_tile3" width="76" height="76"/>
-        <image name="intro_tile4" width="76" height="76"/>
-        <image name="intro_tile5" width="76" height="75"/>
-        <image name="intro_tile6" width="76" height="75"/>
+        <image name="launchImage" width="320" height="568"/>
     </resources>
 </document>

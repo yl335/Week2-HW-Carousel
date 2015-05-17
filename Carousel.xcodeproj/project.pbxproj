@@ -22,6 +22,10 @@
 		B56028471B02EAB400A23BBB /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56028461B02EAB400A23BBB /* IntroViewController.swift */; };
 		B56028491B02EF8200A23BBB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56028481B02EF8200A23BBB /* SignInViewController.swift */; };
 		B5615DF11B082FC400A2FB81 /* ScaleInTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5615DF01B082FC400A2FB81 /* ScaleInTransitionManager.swift */; };
+		B5A2D69B1B087C45008BF6C8 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2D69A1B087C45008BF6C8 /* PhotoDetailViewController.swift */; };
+		B5A2D69D1B0883F2008BF6C8 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2D69C1B0883F2008BF6C8 /* EmailViewController.swift */; };
+		B5A2D69F1B088603008BF6C8 /* LearnMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2D69E1B088603008BF6C8 /* LearnMoreViewController.swift */; };
+		B5A2D6A11B088BC0008BF6C8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2D6A01B088BC0008BF6C8 /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		B56028461B02EAB400A23BBB /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		B56028481B02EF8200A23BBB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B5615DF01B082FC400A2FB81 /* ScaleInTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleInTransitionManager.swift; sourceTree = "<group>"; };
+		B5A2D69A1B087C45008BF6C8 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		B5A2D69C1B0883F2008BF6C8 /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		B5A2D69E1B088603008BF6C8 /* LearnMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnMoreViewController.swift; sourceTree = "<group>"; };
+		B5A2D6A01B088BC0008BF6C8 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,10 @@
 				B56028241B02E6DD00A23BBB /* AppDelegate.swift */,
 				B56028261B02E6DD00A23BBB /* ViewController.swift */,
 				B56028281B02E6DD00A23BBB /* Main.storyboard */,
+				B5A2D6A01B088BC0008BF6C8 /* FeedViewController.swift */,
+				B5A2D69E1B088603008BF6C8 /* LearnMoreViewController.swift */,
+				B5A2D69C1B0883F2008BF6C8 /* EmailViewController.swift */,
+				B5A2D69A1B087C45008BF6C8 /* PhotoDetailViewController.swift */,
 				B553AB031B03597C00B38602 /* TermsViewController.swift */,
 				B553AB011B0351A300B38602 /* CreateViewController.swift */,
 				B553AAFF1B034DED00B38602 /* SettingsViewController.swift */,
@@ -239,12 +251,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5A2D69F1B088603008BF6C8 /* LearnMoreViewController.swift in Sources */,
 				B56028271B02E6DD00A23BBB /* ViewController.swift in Sources */,
 				B56028451B02EA9000A23BBB /* Common.swift in Sources */,
 				B553AB021B0351A300B38602 /* CreateViewController.swift in Sources */,
 				B5615DF11B082FC400A2FB81 /* ScaleInTransitionManager.swift in Sources */,
 				B553AAFE1B034D7300B38602 /* ConversationsViewController.swift in Sources */,
 				B553AB041B03597C00B38602 /* TermsViewController.swift in Sources */,
+				B5A2D6A11B088BC0008BF6C8 /* FeedViewController.swift in Sources */,
+				B5A2D69D1B0883F2008BF6C8 /* EmailViewController.swift in Sources */,
+				B5A2D69B1B087C45008BF6C8 /* PhotoDetailViewController.swift in Sources */,
 				B56028251B02E6DD00A23BBB /* AppDelegate.swift in Sources */,
 				B553AAFC1B03403D00B38602 /* WelcomeViewController.swift in Sources */,
 				B56028491B02EF8200A23BBB /* SignInViewController.swift in Sources */,

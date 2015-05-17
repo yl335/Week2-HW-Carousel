@@ -13,28 +13,24 @@ class ScaleInTransitionManager: NSObject, UIViewControllerTransitioningDelegate,
     var isPresenting: Bool = true
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        println("presenting")
 
         isPresenting = true
         return self
     }
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        println("not presenting")
 
         isPresenting = false
         return self
     }
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        println("animating transitionDuration")
 
         // The value here should be the duration of the animations scheduled in the animationTransition method
         return 0.4
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        println("animating transition")
         var containerView = transitionContext.containerView()
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!

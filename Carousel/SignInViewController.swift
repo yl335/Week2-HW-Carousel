@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SignInViewController: UIViewController{
+class SignInViewController: UIViewController, UIScrollViewDelegate {
+    
+    @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var alertContainerView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var signInView: UIView!
     @IBOutlet weak var formView: UIView!
@@ -17,9 +21,11 @@ class SignInViewController: UIViewController{
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     //original view location
     var originalSignInCenter: CGPoint!
-    var originalFormCenter: CGPoint!
+    var originalScrollCenter: CGPoint!
     
     //hardcoded email/pwd
     let emailStr = "q"
@@ -28,14 +34,18 @@ class SignInViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     //   view.hidden = true
-
         // Do any additional setup after loading the view.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         originalSignInCenter = signInView.center
-        originalFormCenter = formView.center
+        originalScrollCenter = scrollView.center
+        
+        // Dismiss keyboard when dragging down scrollView
+        scrollView.keyboardDismissMode = .OnDrag
+        
+        overlayView.hidden = true
+        alertContainerView.layer.cornerRadius = 5.0
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -49,6 +59,10 @@ class SignInViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        var offset = Float(scrollView.contentOffset.y)
     }
     
     
@@ -68,22 +82,16 @@ class SignInViewController: UIViewController{
             } else if self.passwordField.text != self.passwordStr {
                 self.showAlert("Valid Password Required", messageStr: "Please enter a valid password")
             } else {
-                var alertView = UIAlertView(
-                    title: "Loading...",
-                    message: "\n\n\n",
-                    delegate: self,
-                    cancelButtonTitle: nil)
-                var loading = UIActivityIndicatorView()
-                loading.frame = CGRect(x: 0, y: 0, width: 16, height: 16)
-                loading.hidesWhenStopped = true
-                loading.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-                alertView.setValue(loading, forKey: "accessoryView")
-                loading.startAnimating()
-                alertView.show()
+                view.endEditing(true)
+                activityIndicator.hidesWhenStopped = true
+                activityIndicator.startAnimating()
+                UIView.animateWithDuration(0.2, animations: {
+                    self.overlayView.hidden = false
+                })
                 
                 delay(2, {
                     self.performSegueWithIdentifier("signInSegue", sender: nil)
-                    alertView.dismissWithClickedButtonIndex(0, animated: true)
+                    self.overlayView.hidden = true
                 })
             }
         }
@@ -109,15 +117,15 @@ class SignInViewController: UIViewController{
         var animationCurve = curveValue.integerValue
         
         //hardcoded offsets
-        var formOffset:CGFloat = show ? 70 : 0
-        var signInOffset = show ? (kbSize.height - 10) : 0
+        var scrollOffset:CGFloat = show ? 70 : 0
+        var signInOffset = show ? (kbSize.height - 10 - scrollOffset) : 0
             
         UIView.animateWithDuration(
             animationDuration,
             delay: 0.0,
             options: UIViewAnimationOptions(UInt(animationCurve << 16)),
             animations: {
-                self.formView.center.y = self.originalFormCenter.y - formOffset
+                self.scrollView.center.y = self.originalScrollCenter.y - scrollOffset
                 self.signInView.center.y = self.originalSignInCenter.y - signInOffset
                 
                 return

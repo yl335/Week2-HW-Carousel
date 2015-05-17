@@ -1,18 +1,18 @@
 //
-//  WelcomeViewController.swift
+//  LearnMoreViewController.swift
 //  Carousel
 //
-//  Created by Sara Lin on 5/13/15.
+//  Created by Sara Lin on 5/17/15.
 //  Copyright (c) 2015 Sara Lin. All rights reserved.
 //
 
 import UIKit
 
-class WelcomeViewController: UIViewController, UIScrollViewDelegate {
+class LearnMoreViewController: UIViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var spinButton: UIButton!
+    @IBOutlet weak var photoCheckBox: UIImageView!
+    @IBOutlet weak var scrollCheckBox: UIImageView!
+    @IBOutlet weak var shareCheckBox: UIImageView!
     
     let learnKeys = ["zoom", "scroll", "share"]
     
@@ -20,12 +20,24 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        scrollView.delegate = self
-        spinButton.alpha = 0.0
-        
+        checkLearnings()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        checkLearnings()
+    }
+    
+    func checkLearnings() {
+        var checkBoxes = [photoCheckBox, scrollCheckBox, shareCheckBox]
         let defaults = NSUserDefaults.standardUserDefaults()
+        
         for i in 0...2 {
-            defaults.setBool(false, forKey: learnKeys[i])
+            if (defaults.boolForKey(learnKeys[i])) {
+                checkBoxes[i].hidden = false
+            }
+            else {
+                checkBoxes[i].hidden = true
+            }
         }
     }
 
@@ -34,20 +46,11 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        // Get the current page based on the scroll offset
-        var page : Int = Int(round(scrollView.contentOffset.x / 320))
-        
-        // Set the current page, so the dots will update
-        pageControl.currentPage = page
-        
-        if page == 3 {
-            pageControl.hidden = true
-            UIView.animateWithDuration(1.5, animations: {
-                self.spinButton.alpha = 1.0
-            })
-        }
+    @IBAction func onPressCloseButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+
     /*
     // MARK: - Navigation
 

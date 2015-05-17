@@ -8,7 +8,13 @@
 
 import UIKit
 
+
 class CreateViewController: UIViewController {
+    
+    
+    @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var alertContainerView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var checkboxButton: UIButton!
     @IBOutlet weak var formView: UIView!
@@ -19,7 +25,9 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    var originalFormCenter: CGPoint!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var originalScrollCenter: CGPoint!
     var originalButtonCenter: CGPoint!
     
     var emailStr = "q"
@@ -32,8 +40,13 @@ class CreateViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
-        originalFormCenter = formView.center
+        originalScrollCenter = scrollView.center
         originalButtonCenter = buttonView.center
+        
+        scrollView.keyboardDismissMode = .OnDrag
+        
+        overlayView.hidden = true
+        alertContainerView.layer.cornerRadius = 5.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,22 +87,16 @@ class CreateViewController: UIViewController {
             } else if self.passwordField.text != self.passwordStr {
                 self.showAlert("Valid Password Required", messageStr: "Please enter a valid password")
             } else {
-                var alertView = UIAlertView(
-                    title: "Loading...",
-                    message: "\n\n\n",
-                    delegate: self,
-                    cancelButtonTitle: nil)
-                var loading = UIActivityIndicatorView()
-                loading.frame = CGRect(x: 0, y: 0, width: 16, height: 16)
-                loading.hidesWhenStopped = true
-                loading.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-                alertView.setValue(loading, forKey: "accessoryView")
-                loading.startAnimating()
-                alertView.show()
+                view.endEditing(true)
+                activityIndicator.hidesWhenStopped = true
+                activityIndicator.startAnimating()
+                UIView.animateWithDuration(0.2, animations: {
+                    self.overlayView.hidden = false
+                })
                 
                 delay(2, {
                     self.performSegueWithIdentifier("createADropboxSeque", sender: nil)
-                    alertView.dismissWithClickedButtonIndex(0, animated: true)
+                    self.overlayView.hidden = true
                 })
             }
         }
@@ -112,15 +119,15 @@ class CreateViewController: UIViewController {
             var animationCurve = curveValue.integerValue
             
             //hardcoded offsets
-            var formOffset:CGFloat = show ? 90 : 0
-            var buttonOffset = show ? (kbSize.height - 35) : 0
+            var scrollOffset:CGFloat = show ? 70 : 0
+            var buttonOffset = show ? (kbSize.height - 35 - scrollOffset) : 0
             
             UIView.animateWithDuration(
                 animationDuration,
                 delay: 0.0,
                 options: UIViewAnimationOptions(UInt(animationCurve << 16)),
                 animations: {
-                    self.formView.center.y = self.originalFormCenter.y - formOffset
+                    self.scrollView.center.y = self.originalScrollCenter.y - scrollOffset
                     self.buttonView.center.y = self.originalButtonCenter.y - buttonOffset
                     
                     return
