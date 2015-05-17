@@ -21,6 +21,7 @@
 		B56028451B02EA9000A23BBB /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56028441B02EA9000A23BBB /* Common.swift */; };
 		B56028471B02EAB400A23BBB /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56028461B02EAB400A23BBB /* IntroViewController.swift */; };
 		B56028491B02EF8200A23BBB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56028481B02EF8200A23BBB /* SignInViewController.swift */; };
+		B5615DF11B082FC400A2FB81 /* ScaleInTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5615DF01B082FC400A2FB81 /* ScaleInTransitionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		B56028441B02EA9000A23BBB /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B56028461B02EAB400A23BBB /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		B56028481B02EF8200A23BBB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B5615DF01B082FC400A2FB81 /* ScaleInTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleInTransitionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				B553AAFD1B034D7300B38602 /* ConversationsViewController.swift */,
 				B553AAFB1B03403D00B38602 /* WelcomeViewController.swift */,
 				B56028481B02EF8200A23BBB /* SignInViewController.swift */,
+				B5615DF01B082FC400A2FB81 /* ScaleInTransitionManager.swift */,
 				B560282B1B02E6DD00A23BBB /* Images.xcassets */,
 				B560282D1B02E6DD00A23BBB /* LaunchScreen.xib */,
 				B56028441B02EA9000A23BBB /* Common.swift */,
@@ -239,6 +242,7 @@
 				B56028271B02E6DD00A23BBB /* ViewController.swift in Sources */,
 				B56028451B02EA9000A23BBB /* Common.swift in Sources */,
 				B553AB021B0351A300B38602 /* CreateViewController.swift in Sources */,
+				B5615DF11B082FC400A2FB81 /* ScaleInTransitionManager.swift in Sources */,
 				B553AAFE1B034D7300B38602 /* ConversationsViewController.swift in Sources */,
 				B553AB041B03597C00B38602 /* TermsViewController.swift in Sources */,
 				B56028251B02E6DD00A23BBB /* AppDelegate.swift in Sources */,

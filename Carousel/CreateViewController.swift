@@ -96,8 +96,9 @@ class CreateViewController: UIViewController {
     }
     
     @IBAction func onPressBackButton(sender: AnyObject) {
-        navigationController?.popViewControllerAnimated(true)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
     
     func animateShowHideKeyboard(
         notification: NSNotification!,

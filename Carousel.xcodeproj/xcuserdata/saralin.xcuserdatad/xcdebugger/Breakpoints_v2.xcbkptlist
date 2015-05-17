@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Carousel/IntroViewController.swift"
-            timestampString = "453504434.24831"
+            filePath = "Carousel/ScaleInTransitionManager.swift"
+            timestampString = "453525383.486538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "transformAll(_:)"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "animateTransition(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

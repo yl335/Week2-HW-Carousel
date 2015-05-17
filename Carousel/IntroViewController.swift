@@ -10,6 +10,8 @@ import UIKit
 
 class IntroViewController: UIViewController, UIScrollViewDelegate {
 
+    let transitionManager = ScaleInTransitionManager()
+
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var tileView: UIImageView!
@@ -28,24 +30,20 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         scrollView.delegate = self
-        transformAll([tileView, tileView2, tileView3, tileView4, tileView5, tileView6])
-    }
-    
-    func transformAll(tileViews: [UIImageView]) {
-        var view:UIImageView
-        
-        for var index = 0; index < tileViews.count; ++index {
-            var rotate:CGFloat = CGFloat(rotations[index]) * CGFloat(M_PI / 180)
-            view = tileViews[index]
-            view.transform = CGAffineTransformMakeTranslation(CGFloat(xOffsets[index]), CGFloat(yOffsets[index]))
-            view.transform = CGAffineTransformScale(view.transform, CGFloat(scales[index]), CGFloat(scales[index]))
-            view.transform = CGAffineTransformRotate(view.transform, rotate)
-        }
+        transformOnScroll(0, tileViews: [tileView, tileView2, tileView3, tileView4, tileView5, tileView6])
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println("prepare for segue")
+        
+        var destinationVC = segue.destinationViewController as! UIViewController
+        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+        destinationVC.transitioningDelegate = self.transitionManager
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -74,9 +72,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBAction func onCreateADropboxButton(sender: AnyObject) {
-        
-    }
+
 
     /*
     // MARK: - Navigation
